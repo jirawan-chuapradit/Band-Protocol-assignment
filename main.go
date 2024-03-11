@@ -6,25 +6,28 @@ import "strings"
 // R shots taken by kids
 // and then compares them to determine whether Boss Baby is a "Good boy" or a "Bad boy"
 func BossBabyRevenge(shot string) string {
-	kidShot := 0
+	bossRevenge := 0
 	shot = strings.ToUpper(shot)
 
-	// boss_baby_initiate_fight
-	if strings.HasPrefix(shot, "R") {
+	if initFight := isBossBabyInitiateFight(shot); initFight {
 		return "Bad boy"
 	}
 
 	for _, shot := range shot {
 		if shot == 'S' {
-			kidShot++
-		} else if shot == 'R' && kidShot > 0 {
-			kidShot--
+			bossRevenge--
+		} else if shot == 'R' && bossRevenge < 0 {
+			bossRevenge++
 		}
 	}
 
-	if kidShot <= 0 {
-		return "Good boy"
-	} else {
+	if bossRevenge < 0 {
 		return "Bad boy"
 	}
+	return "Good boy"
+}
+
+// check Boss Baby initiate shots to the neighborhood kids
+func isBossBabyInitiateFight(shot string) bool {
+	return strings.HasPrefix(shot, "R")
 }
