@@ -1,5 +1,5 @@
 # Boss-Baby-s-Revenge
-
+![Alt text](image.png)
 ## Description
 The `BossBabyRevenge` function determines whether Boss Baby is a "Good boy" or a "Bad boy" based on the shots taken by Boss Baby (`S`) and the shots taken by the neighborhood kids (`R`).
 
